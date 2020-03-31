@@ -1,5 +1,6 @@
 package com.example.android.androidarchitecturecomponents;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -22,7 +23,7 @@ public interface NoteDao {
     void  deleteAllNotes();
 
     @Query("SELECT * FROM note_table ORDER BY priority DESC ")
-    List<Note> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 
 
 }
