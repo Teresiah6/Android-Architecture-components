@@ -7,6 +7,13 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import android.app.Application;
+import android.os.AsyncTask;
+
+import androidx.lifecycle.LiveData;
+
+import java.util.List;
+
 public class NoteRepository {
     private NoteDao noteDao;
     private LiveData<List<Note>> allNotes;
@@ -42,9 +49,9 @@ public class NoteRepository {
     //prevents memory leak
     //async task
     private static class InsertNoteAsyncTask extends AsyncTask <Note, Void, Void>{
-//create member variable for note Dao
+        //create member variable for note Dao
         private NoteDao noteDao;
-//pass noteDao over a constructor, neede to create db operations
+        //pass noteDao over a constructor, neede to create db operations
         //class is static
         private InsertNoteAsyncTask (NoteDao noteDao){
             this.noteDao =noteDao;
